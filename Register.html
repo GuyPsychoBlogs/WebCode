@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register page</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login page</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/register.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+	<link rel="icon" type="image/x-icon" href="./image/title.png" />
+</head>
+<body>
+<canvas id="christmasCanvas" style="top: 0px; left: 0px; width: 100%; height: 100%; z-index: 5000; position: fixed; pointer-events: none; "></canvas>
+	<script type="text/javascript">
+	  var snow = function() {
+	    if(1==1) {
+	      var b = document.getElementById("christmasCanvas"), 
+	          a = b.getContext("2d"), 
+	          d = window.innerWidth, 
+	          c = window.innerHeight;
+	      b.width = d;
+	      b.height = c;
+	      for(var e = [], b = 0;b < 70;b++) {
+	        e.push({x:Math.random() * d, 
+	                y:Math.random() * c, 
+	                r:Math.random() * 4 + 1, 
+	                d:Math.random() * 70})
+	      }
+	      var h = 0;
+	      window.intervral4Christmas = setInterval(function() {
+	        a.clearRect(0, 0, d, c);
+	        a.fillStyle = "rgba(255 245 238)";
+	        a.shadowBlur = 5;
+	        a.shadowColor = "rgba(255 193 193)";
+	        a.beginPath();
+	        for(var b = 0;b < 70;b++) {
+	          var f = e[b];
+	          a.moveTo(f.x, f.y);
+	          a.arc(f.x, f.y, f.r, 0, Math.PI * 2, !0)
+	        }
+	        a.fill();
+	        h += 0.01;
+	        for(b = 0;b < 70;b++) {
+	          if(f = e[b], f.y += Math.cos(h + f.d) + 1 + f.r / 2, 
+	            f.x += Math.sin(h) * 2, f.x > d + 5 || f.x < -5 || f.y > c) {
+	            e[b] = b % 3 > 0 ? {x:Math.random() * d, y:-10, r:f.r, d:f.d} : 
+	            Math.sin(h) > 0 ? {x:-5, y:Math.random() * c, r:f.r, d:f.d} : 
+	            {x:d + 5, y:Math.random() * c, r:f.r, d:f.d}
+	          }
+	        }
+	      }, 70)
+	    }
+	  }
+	  snow();
+  </script>	
+
+
+<div class="main">
+    <div class="user">
+        <a href="#" style="display: block; text-align: center;color: red;" class="fa fa-user-circle">	
+        </a>
+        <h1 style="display: block; text-align: center;">User register</h1>
+        <form id="form"  style="display: block; text-align: center;" action ="sessionlogin.php" method="post">
+        <p>
+        <span style="color: red;">username:</span>
+        <input type="text" name="username" maxlength="12">
+        </p>
+        <p style="margin-top:20px;">
+        <span style="color: red;">password:</span>
+        <input type="password" name="pwd" maxlength="16">
+        </P>
+        <input style="width: 100px; margin-top:20px;margin-left: 66px" type="submit" name="postdata" value="registe"/>
+    </div>
+
+
+</div>
+	<div class="footer">		
+		
+		<p> 「Copyright © 2020:Guypsycho.blog's」</p>
+			<div class="misc">
+				<ul >
+					<li>
+						<a href="About.html">关于本站</a>
+					</li>
+					<li>
+						<a href="#">友情链接：</a>
+					</li>
+					<li>
+
+						<a href="https://www.heibai.org/">黑白网</a>
+					</li>					
+					<li>
+						<a href="https://edu.heibai.org//">黑白资源网</a>
+					</li>						
+				</ul>
+	</div>	
+</body>
+</html>
+
+</body>
+
+</html>
+</body>
+</html>

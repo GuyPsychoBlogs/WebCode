@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About</title>
+	<meta charset="utf-8">
+	<meta name="keyword" content="个人博客、个人笔记、网络安全、信息安全、">
+	<meta name="description" content="本博客是一个记录博主笔记和的一个网站">
+	<meta name="viewport" content="width = device-width,initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="./image/title.png" />
+	<link rel="stylesheet" type="text/css" href="css/content.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+	<audio autoplay="" loop=""><source src="./music/御剑江湖.mp3"></audio>
+	<style type="text/css"></style>	
+</head>
+<body>	
+		
+	<canvas id="christmasCanvas" style="top: 0px; left: 0px; width: 100%; height: 100%; z-index: 5000; position: fixed; pointer-events: none; " >
+	</canvas>
+<script type="text/javascript">
+  var snow = function() {
+    if(1==1) {
+      var b = document.getElementById("christmasCanvas"), 
+          a = b.getContext("2d"), 
+          d = window.innerWidth, 
+          c = window.innerHeight;
+      b.width = d;
+      b.height = c;
+      for(var e = [], b = 0;b < 70;b++) {
+        e.push({x:Math.random() * d, 
+                y:Math.random() * c, 
+                r:Math.random() * 4 + 1, 
+                d:Math.random() * 70})
+      }
+      var h = 0;
+      window.intervral4Christmas = setInterval(function() {
+        a.clearRect(0, 0, d, c);
+        a.fillStyle = "rgba(255 245 238)";
+        a.shadowBlur = 5;
+        a.shadowColor = "rgba(255 193 193)";
+        a.beginPath();
+        for(var b = 0;b < 70;b++) {
+          var f = e[b];
+          a.moveTo(f.x, f.y);
+          a.arc(f.x, f.y, f.r, 0, Math.PI * 2, !0)
+        }
+        a.fill();
+        h += 0.01;
+        for(b = 0;b < 70;b++) {
+          if(f = e[b], f.y += Math.cos(h + f.d) + 1 + f.r / 2, 
+            f.x += Math.sin(h) * 2, f.x > d + 5 || f.x < -5 || f.y > c) {
+            e[b] = b % 3 > 0 ? {x:Math.random() * d, y:-10, r:f.r, d:f.d} : 
+            Math.sin(h) > 0 ? {x:-5, y:Math.random() * c, r:f.r, d:f.d} : 
+            {x:d + 5, y:Math.random() * c, r:f.r, d:f.d}
+          }
+        }
+      }, 70)
+    }
+  }
+  snow();
+</script>
+	<div class="nav">
+		<div class="menu">
+				<ul>
+					<li style=" width:60px;  margin: 0px; text-align: center;">
+						<a href="index.html" style="margin-right:20px;">首页</a>
+					</li>
+					<li>	
+						<a href="#">漏洞查询平台</a>
+						<ul class="nav2" style="">
+							<li>
+								<a href="https://www.exploit-db.com/">Exploit</a>
+							</li>	
+							<li>
+								<a href="https://www.seebug.org/">seebug</a>
+							</li>
+							<li>	
+								<a href="http://0day5.com/">漏洞时代</a>
+							</li>
+						</ul>
+					</li>	
+					<li>
+						<a href="#">安全视频平台</a>
+						<ul class="nav2">
+							<li>
+								<a href="http://open.freebuf.com/">freebuf课程</a>
+							</li>	
+							<li>		
+								<a href="https://edu.51cto.com/courselist/index.html?q=%E5%AE%89%E5%85%A8">51CTO学院</a>
+							</li>	
+							<li>
+								<a href="https://edu.aqniu.com/">安全牛课堂</a>
+							</li>
+							
+						</ul>						
+					</li>	
+					<li>
+						<a href="#">HackingTools</a>
+						<ul class="nav2">
+							<li>
+								<a href="http://www.durkadevi.com/sound/scan.php">SqliScan</a>
+							</li>	
+							
+							<li>		
+								<a href="http://nmap.online-domain-tools.com/">Nmap Scan</a>
+							</li>	
+
+							<li>
+								<a href="http://xss-scanner.com/">Xss Scan</a>
+							</li>								
+							
+							<li>
+								<a href="https://www.ddosi.com/mm.html">字典生成器</a>
+							</li>					
+						</ul>						
+					</li>							
+					<li>
+						<a href="#">加密解密</a>
+						<ul class="nav2">
+							<li>
+								<a href="https://www.somd5.com/">Somd5解密</a>
+							</li>
+							<li>
+								<a href="https://md5jiami.51240.com/">Md5在线加密</a>
+							</li>
+							<li>
+								<a href="https://www.ddosi.com/mm.html">随机密码生成</a>
+							</li>
+						</ul>		
+					</li>
+					<li>
+						<a href="#">技能树</a>
+						<ul class="nav2">
+							<li>
+								<a href="#">知道创宇</a>
+							</li>
+							<li>
+								<a href="#">web安全导图</a>
+							</li>
+							<li>
+								<a href="#">metasploit</a>
+							</li>
+							<li>
+								<a href="#">Kali linux</a>
+							</li>							
+						</ul>
+					</li>	
+					<li>
+						<a href="#">渗透测试</a>
+						<ul class="nav2">
+							<li>
+								<a href="https://www.reg007.com/">注册查询</a>
+							</li>	
+							<li>		
+								<a href="https://fofa.so//">FOFA搜索</a>
+							</li>	
+							<li>
+								<a href="https://www.shodan.io/">shodan搜索</a>
+							</li>
+							
+						</ul>						
+					</li>							
+				</ul>
+					<div class="Login">
+						<ul>
+							<a href="Login.html" class="fa fa-user" > 登录</a>
+						</ul>
+					</div>	
+		</div>	
+	</div>	
+	<!--<input class="search" type="text" name="search">
+		<input class="submit" type="submit" name="" value="搜素">
+	-->
+<div class="bigdiv">	
+	
+		<div class="Lcontent">
+			<span class= "onesp">标签 ₪ ℒ ℒ ₪</span>
+			<a href="#" class="la">Burpsuite</a>
+			<a href="#" class="la">Cupture the flag</a>
+			<a href="#" class="la">Domian name sever</a>
+			<a href="#" class="la">Kali linxu</a>
+			<a href="#" class="la">Metasploit</a>
+			<a href="#" class="la">Netsparker</a>
+			<a href="#" class="la">Nmap</a>
+			<a href="#" class="la">Tor Router</a>
+			<a href="#" class="la">Xml注入</a>
+			<a href="#" class="la">隐私防护</a>
+			<a href="#" class="la">代码审计</a>
+			<a href="#" class="la">信息安全</a>
+			<a href="#" class="la">免杀</a>
+			<a href="#" class="la">在线工具</a>
+			<a href="#" class="la">数据泄露</a>
+			<a href="#" class="la">社会工程学</a>
+			<a href="#" class="la">暴力破解</a>
+			<a href="#" class="la">Hacking Tools</a>
+			<a href="#" class="la">Virus</a>
+			<a href="#" class="la">Html</a>
+		</div>
+
+		<div class="Content">
+			<h1>关于本站</h1>
+				<div class="entry_header">
+	                <time>2020/9月/26日</time>
+	                &nbsp;
+	                by
+	                <a class="fa fa-user-secret" href="#">Psycho</a>
+	                &nbsp;
+	                <a class="fa fa-commenting" href="#">0条评论</a>
+	   
+	                <a class="fa fa-thumbs-up" href="#">0</a>
+            	</div>			
+                <p class="words">
+				
+				</p>
+                <p class="words" style="color:pink;">
+				<br>这是一个存放学习笔记的博客<br>
+				<br>笔记有什么地方出错 欢迎纠正<br>
+				<br>博主联系方式：QQ 1946402118<br>
+				<br>欢迎入住投稿<br>
+<br>
+				<span style="color: pink;">---------- Guy_Psycho.</span>
+
+               
+                	<br>
+                </p>
+                    <br>
+
+		</div>	
+					
+		<div class="Rcontent">
+			<span class="foursp">Web/Wi-fi安全书籍</span>
+			<h1 class="Webanquan"><i class="fa fa-book" aria-hidden="true">Web安全书籍:</i></h1>
+			<ul>
+				<li class="ri"><a href="https://edu.heibai.org/01%20Web%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90.pdf">Web安全深度剖析</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/?dir=/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">安全思维导图</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/05%20XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1.pdf">Xss跨站脚本剖析</a>
+				</li>
+				<li class="ri"><a href="https://edu.heibai.org/04%20SQL%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%E4%B8%8E%E9%98%B2%E5%BE%A1++%E7%AC%AC2%E7%89%88.pdf">Sql注入与防御</a>
+				</li>	
+				<h1 class="WiFianquan"><i class="fa fa-wifi" aria-hidden="true"></i>WiFi安全书籍:</i></h1>			
+				 <li class="ri"><a href="https://edu.heibai.org/%E8%BF%91%E6%BA%90%E6%B8%97%E9%80%8F%E4%B9%8B%E7%BA%A2%E9%98%9F%E8%A7%86%E8%A7%92%E7%9C%8BWiFi.pdf">近源渗透Wifi</a>
+				</li>
+				 <li class="ri"><a href="https://pan.baidu.com/s/1pKKXXr1">家用路由器0day漏洞挖掘</a>
+				</li>	
+				 <li class="ri"><a href="https://pan.baidu.com/s/1nuRN6Sp">无线攻防进阶	</a>
+				</li>																	
+			</ul>
+		</div>
+
+		<div class="Lcontent">
+			<span class= "twosp">在线工具</span>
+			<h1 class="shegong">☣ 社工查询:</h1>
+			<ul>
+				<li class="li2"><a href="#">天眼查(公司/企业/CEO/法人)</a></li>
+				<li class="li2"><a href="#">reg007(注册信息查询)</a></li>
+				<li class="li2"><a href="#">FoFA(网络空间搜索引擎)</a></li>
+				<li class="li2"><a href="#">Telegram(社工裤机器人)</a></li>
+			</ul>
+		</div>
+		<div class="Comments">
+			<h1 style="margin-top: 750px;"><a href="Login.html" style=" font-size: 300%;"><i class="fa fa-shield" aria-hidden="true">登陆后可查看评论区 </i></a></h1>
+		</div>
+
+		<div class="Rcontent">
+			<span class="fivesp">PHP/Python/Android书籍</span>
+			<h1 class="PHP"><i class="fa fa-book" aria-hidden="true">PHP书籍:</i></h1>
+			<ul>
+				<li class="ri2"><a href="https://phpaudit.books.virzz.com/">PHP代码审计</a></li>
+				<h1 class="Python"><i class="fa fa-book" aria-hidden="true">Python书籍:</i></h1>
+				<li class="ri2"><a href="https://pan.baidu.com/s/1b65k9S">python安全编程</a></li>
+				<h1 class="Python"><i class="fa fa-book" aria-hidden="true">Android书籍:</i></h1>
+				<li class="ri2"><a href="https://pan.baidu.com/s/1kVsVYlD">OWASP TOP10移动安全漏洞（安卓）</a></li>
+				<h1 class="Poc"><i class="fa fa-book" aria-hidden="true">POC书籍:</i></h1>
+				<li class="ri2"><a href="https://poc.evalbug.com/index.html">Poc编写指南</a></li>
+			</ul>			
+		</div>
+
+		<div class="Lcontent" style="position: absolute; top: 1260px;">
+			<span class= "threesp">☬ 病毒防御自检:</span>
+			<ul>
+				<li class="li3"><a href="#">VisualTotal在线病毒查杀</a></li>
+				<li class="li3"><a href="#">腾讯哈勃分析系统</a></li>
+				<li class="li3"><a href="#">virscan(病毒木马在线查杀)</a></li>
+			</ul>
+			<h1 class="webshell">☣ WebShell查杀:</h1>
+			<ul>
+				<li class="li3"><a href="https://www.shellpub.com/">河马Shell查杀</a></li>
+				<li class="li3"><a href="https://scanner.baidu.com/#/pages/intro">百度shell查杀</a></li>
+				<li class="li3"><a href="http://www.d99net.net">D盾shell查杀</a></li>
+			</ul>			
+		</div>
+	<div class="Rcontent">
+			<span class="Sixsp">渗透测试/安全运维</span>
+			<h1 class="shentou"><i class="fa fa-laptop" aria-hidden="true">渗透测试</i>:</h1>
+			<ul>
+				<li class="ri3"><a href="#">Wireshark 用户手册</a></li>
+				<li class="ri3"><a href="#">渗透测试实践指南</a></li>
+				<li class="ri3"><a href="#">高安全环境渗透</a></li>	
+				<li class="ri3"><a href="#">Kali Linux中文文档</a></li>
+			</ul>
+			<h1 class="yunwei"><i class="fa fa-laptop" aria-hidden="true">安全运维</i>:</h1>
+				<li class="ri3"><a href="https://pan.baidu.com/s/1hsgQYpQ">日志分析技巧</a></li>	
+				<li class="ri3"><a href="https://pan.baidu.com/s/1o81D6x8">日志管理与分析权威指南</a></li>
+		</div>
+
+</body>
+</html>
